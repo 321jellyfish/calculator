@@ -19,6 +19,10 @@ const multiplyButton = document.querySelector("#multiply-button");
 const divideButton = document.querySelector("#divide-button");
 const equalsButton = document.querySelector("#equals-button");
 
+const topDisplay = document.querySelector(".top-display");
+const bottomDisplay = document.querySelector(".bottom-display");
+
+
 
 
 
