@@ -25,11 +25,41 @@ const topDisplay = document.querySelector(".top-display");
 const bottomDisplay = document.querySelector(".bottom-display");
 
 let topDisplayValue = topDisplay.textContent;
+let firstNumber;
+let secondNumber = 2;
+let operator = "";
 
 sevenButton.addEventListener("click", () => updateDisplay("7"));
 eightButton.addEventListener("click", () => updateDisplay("8"));
+nineButton.addEventListener("click", () => updateDisplay("9"));
+fourButton.addEventListener("click", () => updateDisplay("4"));
+fiveButton.addEventListener("click", () => updateDisplay("5"));
+sixButton.addEventListener("click", () => updateDisplay("6"));
+oneButton.addEventListener("click", () => updateDisplay("1"));
+twoButton.addEventListener("click", () => updateDisplay("2"));
+threeButton.addEventListener("click", () => updateDisplay("3"));
+zeroButton.addEventListener("click", () => updateDisplay("0"));
 
-//addButton.addEventListener("click" () => )
+addButton.addEventListener("click", () => updateDisplayOperator("+"));
+subtractButton.addEventListener("click", () => updateDisplayOperator("-"));
+multiplyButton.addEventListener("click", () => updateDisplayOperator("x"));
+divideButton.addEventListener("click", () => updateDisplayOperator("÷"));
+
+equalsButton.addEventListener("click", () => equationResult());
+
+function equationResult(){
+    bottomDisplay.textContent = operate(firstNumber, secondNumber, operator);
+}
+
+function updateDisplayOperator(inputString){
+    firstNumber = +topDisplay.textContent;
+    console.log({firstNumber});
+    topDisplay.textContent += ` ${inputString} `;
+    operator = inputString;
+    console.log({operator});
+}
+
+//console.log({firstNumber});
 
 function updateDisplay(inputString){
     topDisplay.textContent += inputString;
