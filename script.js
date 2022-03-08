@@ -1,3 +1,4 @@
+//Number buttons
 const sevenButton = document.querySelector("#seven-button");
 const eightButton = document.querySelector("#eight-button");
 const nineButton = document.querySelector("#nine-button");
@@ -13,6 +14,7 @@ const clearButton = document.querySelector("#clear-button");
 const deleteButton = document.querySelector("#delete-button");
 const decimalPointButton = document.querySelector("#decimal-point-button");
 
+//operator buttons
 const addButton = document.querySelector("#add-button");
 const subtractButton = document.querySelector("#subtract-button");
 const multiplyButton = document.querySelector("#multiply-button");
@@ -22,7 +24,16 @@ const equalsButton = document.querySelector("#equals-button");
 const topDisplay = document.querySelector(".top-display");
 const bottomDisplay = document.querySelector(".bottom-display");
 
+let topDisplayValue = topDisplay.textContent;
 
+sevenButton.addEventListener("click", () => updateDisplay("7"));
+eightButton.addEventListener("click", () => updateDisplay("8"));
+
+//addButton.addEventListener("click" () => )
+
+function updateDisplay(inputString){
+    topDisplay.textContent += inputString;
+}
 
 
 
