@@ -47,19 +47,26 @@ divideButton.addEventListener("click", () => updateDisplayOperator("÷"));
 
 equalsButton.addEventListener("click", () => equationResult());
 
+clearButton.addEventListener("click", () => clearDisplay());
+
+function clearDisplay(){
+    topDisplay.textContent = "";
+    bottomDisplay.textContent = "";
+    firstNumber = "";
+    secondNumber = 2;
+    operator = "";
+}
+
 function equationResult(){
     bottomDisplay.textContent = operate(firstNumber, secondNumber, operator);
 }
 
 function updateDisplayOperator(inputString){
     firstNumber = +topDisplay.textContent;
-    console.log({firstNumber});
     topDisplay.textContent += ` ${inputString} `;
     operator = inputString;
-    console.log({operator});
-}
 
-//console.log({firstNumber});
+}
 
 function updateDisplay(inputString){
     topDisplay.textContent += inputString;
@@ -91,10 +98,10 @@ function operate(x, y, operator){
     if(operator === "-"){
         return subtract(x, y);
     }
-    if(operator === "*"){
+    if(operator === "x"){
         return multiply(x, y);
     }
-    if(operator === "/"){
+    if(operator === "÷"){
         return divide(x, y);
     }
 }
