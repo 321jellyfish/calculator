@@ -120,7 +120,7 @@ function clearDisplay(){
 
 function equationResult(){
 
-    operatorPressed = false;
+    operatorPressed = true;
     
     console.log({secondNumber});
     //secondNumber = +topDisplayValue.substr(5);
