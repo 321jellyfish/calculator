@@ -24,11 +24,13 @@ const equalsButton = document.querySelector("#equals-button");
 const topDisplay = document.querySelector(".top-display");
 const bottomDisplay = document.querySelector(".bottom-display");
 
+//create variables
 let topDisplayValue = topDisplay.textContent;
 let firstNumber;
 let secondNumber = 2;
 let operator = "";
 
+//Add event listeners
 sevenButton.addEventListener("click", () => updateDisplay("7"));
 eightButton.addEventListener("click", () => updateDisplay("8"));
 nineButton.addEventListener("click", () => updateDisplay("9"));
@@ -51,12 +53,12 @@ equalsButton.addEventListener("click", () => equationResult());
 
 clearButton.addEventListener("click", () => clearDisplay());
 
+
+//my functions
 function updateDisplayDecimal(inputString){
     topDisplay.textContent += inputString;
-    
     decimalPointButton.disabled = true;
 }
-
 
 function clearDisplay(){
     topDisplay.textContent = "";
@@ -66,20 +68,14 @@ function clearDisplay(){
     operator = "";
 
     decimalPointButton.disabled = false;
-
-    addButton.disabled = false;
-    subtractButton.disabled = false;
-    multiplyButton.disabled = false;
-    divideButton.disabled = false;
+    enableOperatorButtons();
 }
 
 function equationResult(){
 
-    addButton.disabled = false;
-    subtractButton.disabled = false;
-    multiplyButton.disabled = false;
-    divideButton.disabled = false;
-
+    decimalPointButton.disabled = false;
+    enableOperatorButtons();
+    
     bottomDisplay.textContent = operate(firstNumber, secondNumber, operator);
 }
 
@@ -105,7 +101,14 @@ function disableOperatorButtons(){
     divideButton.disabled = true;
 }
 
+function enableOperatorButtons(){
+    addButton.disabled = false;
+    subtractButton.disabled = false;
+    multiplyButton.disabled = false;
+    divideButton.disabled = false;
+}
 
+//Actual calculation functions
 function add(x, y){
     return x + y;
 }
@@ -137,4 +140,5 @@ function operate(x, y, operator){
     }
 }
 
+//Things to do:
 //add delete button functionality
