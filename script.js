@@ -30,6 +30,7 @@ let firstNumber = "";
 let secondNumber = "";
 let operator = "";
 let operatorPressed = false;
+let equalsPressed = false;
 
 //Add event listeners
 sevenButton.addEventListener("click", () => updateDisplay("7"));
@@ -59,28 +60,44 @@ clearButton.addEventListener("click", () => clearDisplay());
 function updateDisplay(inputString){
     if(operatorPressed === true){
         secondNumber += inputString;
-        console.log({secondNumber});
+    } else if (equalsPressed === true){
+        secondNumber += inputString;
+        equalsPressed = false;
     } else {
         firstNumber += inputString;
-    }
+    }    
 
     topDisplay.textContent += inputString;
-    topDisplayValue = topDisplay.textContent;
-    console.log({topDisplayValue});
-    console.log({firstNumber});
+    topDisplayValue = topDisplay.textContent;  
 }
 
 function updateDisplayOperator(inputString){
+    if(operatorPressed === true){
+        //operatorPressed = false;
+
+        topDisplay.textContent = `${operate(+firstNumber, +secondNumber, operator)} ${inputString} `;
+        bottomDisplay.textContent = "";
+        firstNumber = operate(+firstNumber, +secondNumber, operator);
+        secondNumber = "";
+        operator = inputString;
+        
+    } else if(equalsPressed === true){
+        topDisplay.textContent = `${operate(+firstNumber, +secondNumber, operator)} ${inputString} `;
+        bottomDisplay.textContent = "";
+        firstNumber = operate(+firstNumber, +secondNumber, operator);
+        //secondNumber = "";
+        equalsPressed = false;
+    } else {
     firstNumber = +topDisplay.textContent;
     topDisplay.textContent += ` ${inputString} `;
     operator = inputString;
-    console.log({operator});
 
     operatorPressed = true;
-    console.log({operatorPressed});
 
-    enableDecimalPointButton ()
-    disableOperatorButtons();
+    enableDecimalPointButton ();    
+    }
+
+    
 }
 
 function updateDisplayDecimal(inputString){
@@ -105,12 +122,14 @@ function equationResult(){
     
     console.log({secondNumber});
     //secondNumber = +topDisplayValue.substr(5);
-
+    console.log({firstNumber});
+    console.log({secondNumber});
     bottomDisplay.textContent = operate(+firstNumber, +secondNumber, operator);
 
     enableDecimalPointButton ()
     enableOperatorButtons();
 
+    equalsPressed = true;
     
 }
 

@@ -7,6 +7,7 @@ body {
 .calculator-shell {
     background-color: pink;
     padding: 1%;
+    margin-top: 10%;
     border-radius: 8px;
     width: 400px;
 }
