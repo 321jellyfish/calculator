@@ -25,10 +25,11 @@ const topDisplay = document.querySelector(".top-display");
 const bottomDisplay = document.querySelector(".bottom-display");
 
 //create variables
-let topDisplayValue = topDisplay.textContent;
-let firstNumber;
-let secondNumber = 2;
+//let topDisplayValue;
+let firstNumber = "";
+let secondNumber = "";
 let operator = "";
+let operatorPressed = false;
 
 //Add event listeners
 sevenButton.addEventListener("click", () => updateDisplay("7"));
@@ -56,13 +57,27 @@ clearButton.addEventListener("click", () => clearDisplay());
 
 //my functions
 function updateDisplay(inputString){
+    if(operatorPressed === true){
+        secondNumber += inputString;
+        console.log({secondNumber});
+    } else {
+        firstNumber += inputString;
+    }
+
     topDisplay.textContent += inputString;
+    topDisplayValue = topDisplay.textContent;
+    console.log({topDisplayValue});
+    console.log({firstNumber});
 }
 
 function updateDisplayOperator(inputString){
     firstNumber = +topDisplay.textContent;
     topDisplay.textContent += ` ${inputString} `;
     operator = inputString;
+    console.log({operator});
+
+    operatorPressed = true;
+    console.log({operatorPressed});
 
     enableDecimalPointButton ()
     disableOperatorButtons();
@@ -77,7 +92,7 @@ function clearDisplay(){
     topDisplay.textContent = "";
     bottomDisplay.textContent = "";
     firstNumber = "";
-    secondNumber = 2;
+    secondNumber = "";
     operator = "";
 
     enableDecimalPointButton ()
@@ -85,10 +100,18 @@ function clearDisplay(){
 }
 
 function equationResult(){
-    bottomDisplay.textContent = operate(firstNumber, secondNumber, operator);
+
+    operatorPressed = false;
+    
+    console.log({secondNumber});
+    //secondNumber = +topDisplayValue.substr(5);
+
+    bottomDisplay.textContent = operate(+firstNumber, +secondNumber, operator);
 
     enableDecimalPointButton ()
     enableOperatorButtons();
+
+    
 }
 
 
@@ -148,3 +171,54 @@ function operate(x, y, operator){
 
 //Things to do:
 //add delete button functionality
+
+
+/*function updateDisplay(inputString){
+    if(operatorPressed === true){
+        secondNumber += inputString;
+    }
+
+    topDisplay.textContent += inputString;
+    topDisplayValue = topDisplay.textContent;
+    console.log({topDisplayValue});
+}
+
+function updateDisplayOperator(inputString){
+    firstNumber = +topDisplay.textContent;
+    topDisplay.textContent += ` ${inputString} `;
+    operator = inputString;
+    console.log({operator});
+
+    operatorPressed = true;
+
+    enableDecimalPointButton ()
+    disableOperatorButtons();
+}
+
+function updateDisplayDecimal(inputString){
+    topDisplay.textContent += inputString;
+    decimalPointButton.disabled = true;
+}
+
+function clearDisplay(){
+    topDisplay.textContent = "";
+    bottomDisplay.textContent = "";
+    firstNumber = "";
+    secondNumber = "";
+    operator = "";
+
+    enableDecimalPointButton ()
+    enableOperatorButtons();
+}
+
+function equationResult(){
+    
+    console.log({secondNumber});
+    //secondNumber = +topDisplayValue.substr(5);
+
+    bottomDisplay.textContent = operate(firstNumber, secondNumber, operator);
+
+    enableDecimalPointButton ()
+    enableOperatorButtons();
+}
+*/
