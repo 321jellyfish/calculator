@@ -90,11 +90,7 @@ function updateDisplayOperator(inputString){
 
     decimalPointButton.disabled = false;
 
-    addButton.disabled = true;
-    subtractButton.disabled = true;
-    multiplyButton.disabled = true;
-    divideButton.disabled = true;
-
+    disableOperatorButtons();
 }
 
 function updateDisplay(inputString){
@@ -102,6 +98,12 @@ function updateDisplay(inputString){
 }
 
 
+function disableOperatorButtons(){
+    addButton.disabled = true;
+    subtractButton.disabled = true;
+    multiplyButton.disabled = true;
+    divideButton.disabled = true;
+}
 
 
 function add(x, y){
@@ -134,3 +136,5 @@ function operate(x, y, operator){
         return divide(x, y);
     }
 }
+
+//add delete button functionality
