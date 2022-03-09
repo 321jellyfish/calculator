@@ -73,8 +73,6 @@ function updateDisplay(inputString){
 
 function updateDisplayOperator(inputString){
     if(operatorPressed === true){
-        //operatorPressed = false;
-
         topDisplay.textContent = `${operate(+firstNumber, +secondNumber, operator)} ${inputString} `;
         bottomDisplay.textContent = "";
         firstNumber = operate(+firstNumber, +secondNumber, operator);
@@ -85,7 +83,7 @@ function updateDisplayOperator(inputString){
         topDisplay.textContent = `${operate(+firstNumber, +secondNumber, operator)} ${inputString} `;
         bottomDisplay.textContent = "";
         firstNumber = operate(+firstNumber, +secondNumber, operator);
-        //secondNumber = "";
+        
         equalsPressed = false;
     } else {
     firstNumber = +topDisplay.textContent;
@@ -119,13 +117,8 @@ function clearDisplay(){
 }
 
 function equationResult(){
-
     operatorPressed = true;
     
-    console.log({secondNumber});
-    //secondNumber = +topDisplayValue.substr(5);
-    console.log({firstNumber});
-    console.log({secondNumber});
     bottomDisplay.textContent = operate(+firstNumber, +secondNumber, operator);
 
     enableDecimalPointButton ()
@@ -190,56 +183,7 @@ function operate(x, y, operator){
     }
 }
 
-//Things to do:
-//add delete button functionality
-
-
-/*function updateDisplay(inputString){
-    if(operatorPressed === true){
-        secondNumber += inputString;
-    }
-
-    topDisplay.textContent += inputString;
-    topDisplayValue = topDisplay.textContent;
-    console.log({topDisplayValue});
-}
-
-function updateDisplayOperator(inputString){
-    firstNumber = +topDisplay.textContent;
-    topDisplay.textContent += ` ${inputString} `;
-    operator = inputString;
-    console.log({operator});
-
-    operatorPressed = true;
-
-    enableDecimalPointButton ()
-    disableOperatorButtons();
-}
-
-function updateDisplayDecimal(inputString){
-    topDisplay.textContent += inputString;
-    decimalPointButton.disabled = true;
-}
-
-function clearDisplay(){
-    topDisplay.textContent = "";
-    bottomDisplay.textContent = "";
-    firstNumber = "";
-    secondNumber = "";
-    operator = "";
-
-    enableDecimalPointButton ()
-    enableOperatorButtons();
-}
-
-function equationResult(){
-    
-    console.log({secondNumber});
-    //secondNumber = +topDisplayValue.substr(5);
-
-    bottomDisplay.textContent = operate(firstNumber, secondNumber, operator);
-
-    enableDecimalPointButton ()
-    enableOperatorButtons();
-}
-*/
+//To do list:
+//Stop user from entering a number like .6
+//Get delete button to work
+//Make website responsive
