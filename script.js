@@ -55,6 +55,19 @@ clearButton.addEventListener("click", () => clearDisplay());
 
 
 //my functions
+function updateDisplay(inputString){
+    topDisplay.textContent += inputString;
+}
+
+function updateDisplayOperator(inputString){
+    firstNumber = +topDisplay.textContent;
+    topDisplay.textContent += ` ${inputString} `;
+    operator = inputString;
+
+    enableDecimalPointButton ()
+    disableOperatorButtons();
+}
+
 function updateDisplayDecimal(inputString){
     topDisplay.textContent += inputString;
     decimalPointButton.disabled = true;
@@ -67,33 +80,22 @@ function clearDisplay(){
     secondNumber = 2;
     operator = "";
 
-    decimalPointButton.disabled = false;
+    enableDecimalPointButton ()
     enableOperatorButtons();
 }
 
 function equationResult(){
-
-    decimalPointButton.disabled = false;
-    enableOperatorButtons();
-    
     bottomDisplay.textContent = operate(firstNumber, secondNumber, operator);
-}
 
-function updateDisplayOperator(inputString){
-    firstNumber = +topDisplay.textContent;
-    topDisplay.textContent += ` ${inputString} `;
-    operator = inputString;
-
-    decimalPointButton.disabled = false;
-
-    disableOperatorButtons();
-}
-
-function updateDisplay(inputString){
-    topDisplay.textContent += inputString;
+    enableDecimalPointButton ()
+    enableOperatorButtons();
 }
 
 
+
+
+
+//Enable and disable operator/decimal functions
 function disableOperatorButtons(){
     addButton.disabled = true;
     subtractButton.disabled = true;
@@ -106,6 +108,10 @@ function enableOperatorButtons(){
     subtractButton.disabled = false;
     multiplyButton.disabled = false;
     divideButton.disabled = false;
+}
+
+function enableDecimalPointButton (){
+    decimalPointButton.disabled = false;
 }
 
 //Actual calculation functions
