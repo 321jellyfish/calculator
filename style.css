@@ -28,7 +28,6 @@ body {
 button {
     font-family: 'Courier New', Courier, monospace;
     margin: 2%;
-    background-color: lightcyan;
     border-radius: 4px;
     padding: 10%;
     font-size: large;
@@ -36,16 +35,23 @@ button {
     width: 20px;
 }
 
-.clear-and-delete-button-container {
-    display: flex;
+.number-button {
+    background-color: lightcyan;
 }
+
+/*.clear-and-delete-button-container {
+    display: flex;
+}*/
 
 #clear-button {
     background-color: aquamarine;
 }
 
 #delete-button {
-    background-color: red;
+    background-color: peru;
 }
 
+#equals-button {
+    background-color: palevioletred;
+}
 
