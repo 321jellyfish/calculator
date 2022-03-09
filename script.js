@@ -55,9 +55,20 @@ function clearDisplay(){
     firstNumber = "";
     secondNumber = 2;
     operator = "";
+
+    addButton.disabled = false;
+    subtractButton.disabled = false;
+    multiplyButton.disabled = false;
+    divideButton.disabled = false;
 }
 
 function equationResult(){
+
+    addButton.disabled = false;
+    subtractButton.disabled = false;
+    multiplyButton.disabled = false;
+    divideButton.disabled = false;
+
     bottomDisplay.textContent = operate(firstNumber, secondNumber, operator);
 }
 
@@ -65,6 +76,11 @@ function updateDisplayOperator(inputString){
     firstNumber = +topDisplay.textContent;
     topDisplay.textContent += ` ${inputString} `;
     operator = inputString;
+
+    addButton.disabled = true;
+    subtractButton.disabled = true;
+    multiplyButton.disabled = true;
+    divideButton.disabled = true;
 
 }
 
