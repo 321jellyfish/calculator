@@ -111,6 +111,8 @@ function clearDisplay(){
     firstNumber = "";
     secondNumber = "";
     operator = "";
+    equalsPressed = false;
+    operatorPressed = false;
 
     enableDecimalPointButton ()
     enableOperatorButtons();
