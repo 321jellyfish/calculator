@@ -40,6 +40,8 @@ twoButton.addEventListener("click", () => updateDisplay("2"));
 threeButton.addEventListener("click", () => updateDisplay("3"));
 zeroButton.addEventListener("click", () => updateDisplay("0"));
 
+decimalPointButton.addEventListener("click", () => updateDisplayDecimal("."));
+
 addButton.addEventListener("click", () => updateDisplayOperator("+"));
 subtractButton.addEventListener("click", () => updateDisplayOperator("-"));
 multiplyButton.addEventListener("click", () => updateDisplayOperator("x"));
@@ -49,12 +51,21 @@ equalsButton.addEventListener("click", () => equationResult());
 
 clearButton.addEventListener("click", () => clearDisplay());
 
+function updateDisplayDecimal(inputString){
+    topDisplay.textContent += inputString;
+    
+    decimalPointButton.disabled = true;
+}
+
+
 function clearDisplay(){
     topDisplay.textContent = "";
     bottomDisplay.textContent = "";
     firstNumber = "";
     secondNumber = 2;
     operator = "";
+
+    decimalPointButton.disabled = false;
 
     addButton.disabled = false;
     subtractButton.disabled = false;
@@ -76,6 +87,8 @@ function updateDisplayOperator(inputString){
     firstNumber = +topDisplay.textContent;
     topDisplay.textContent += ` ${inputString} `;
     operator = inputString;
+
+    decimalPointButton.disabled = false;
 
     addButton.disabled = true;
     subtractButton.disabled = true;
