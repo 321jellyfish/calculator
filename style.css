@@ -25,16 +25,6 @@ body {
     flex-wrap: wrap;
 }
 
-/*.operator-buttons {
-    display: flex;
-    flex-direction: column;
-}*/
-
-/*
-.number-buttons {
-    margin-right: 0px;
-}*/
-
 button {
     font-family: 'Courier New', Courier, monospace;
     margin: 2%;
@@ -46,5 +36,16 @@ button {
     width: 20px;
 }
 
+.clear-and-delete-button-container {
+    display: flex;
+}
+
+#clear-button {
+    background-color: aquamarine;
+}
+
+#delete-button {
+    background-color: red;
+}
 
 
