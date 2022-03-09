@@ -41,13 +41,20 @@ button {
 
 #clear-button {
     background-color: aquamarine;
+    width: 184px;
 }
 
 #delete-button {
     background-color: peru;
+    width: 184px;
 }
 
 #equals-button {
     background-color: palevioletred;
+}
+
+.clear-and-delete-button-container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
