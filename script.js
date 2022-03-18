@@ -187,3 +187,7 @@ function operate(x, y, operator){
 //Stop user from entering a number like .6
 //Get delete button to work
 //Make website responsive
+//What to do if user presses '=' early?
+//don't let user divide by 0
+//round long decimals
+//don't allow user to enter really long number
